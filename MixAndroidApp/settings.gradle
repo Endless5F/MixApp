@@ -1,0 +1,28 @@
+pluginManagement {
+    repositories {
+        maven { url 'https://www.jitpack.io' }
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        maven { url 'https://www.jitpack.io' }
+        google()
+        mavenCentral()
+        maven {
+            url "../node_modules/react-native/android"
+        }
+        maven {
+            url("../node_modules/jsc-android/dist")
+        }
+    }
+}
+rootProject.name = "MixAndroidApp"
+include ':app'
+
+includeBuild('../node_modules/@react-native/gradle-plugin')
+apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
