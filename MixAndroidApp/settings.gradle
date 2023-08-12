@@ -1,28 +1,36 @@
-pluginManagement {
-    repositories {
-        maven { url 'https://www.jitpack.io' }
-        gradlePluginPortal()
-        google()
-        mavenCentral()
-    }
-}
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        maven { url 'https://www.jitpack.io' }
-        google()
-        mavenCentral()
-        maven {
-            url "../node_modules/react-native/android"
-        }
-        maven {
-            url("../node_modules/jsc-android/dist")
-        }
-    }
-}
+//pluginManagement {
+//    repositories {
+//        maven { url 'https://www.jitpack.io' }
+//        gradlePluginPortal()
+//        google()
+//        mavenCentral()
+//    }
+//}
+//dependencyResolutionManagement {
+//    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+//    repositories {
+//        maven { url 'https://maven.aliyun.com/repository/google' }
+//        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+//        maven { url 'https://maven.aliyun.com/nexus/content/groups/public' }
+//        maven { url 'https://storage.googleapis.com/download.flutter.ioo' }
+//        google()
+//        mavenCentral()
+//        maven {
+//            url "../node_modules/react-native/android"
+//        }
+//        maven {
+//            url("../node_modules/jsc-android/dist")
+//        }
+//    }
+//}
 rootProject.name = "MixAndroidApp"
 include ':app'
+
+setBinding(new Binding([gradle: this]))
+evaluate(new File(settingsDir.parentFile, 'mix_flutter/.android/include_flutter.groovy'))
+// 可选，主要作用是可以在当前AS的Project下显示flutter_module以方便查看和编写Dart代码
+include ':mix_flutter'
+project(':mix_flutter').projectDir = new File('../mix_flutter')
 
 includeBuild('../node_modules/@react-native/gradle-plugin')
 apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)

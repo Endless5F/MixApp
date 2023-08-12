@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.provider.Settings
 import android.view.KeyEvent
 import androidx.appcompat.app.AppCompatActivity
+import com.facebook.hermes.reactexecutor.HermesExecutorFactory
 import com.facebook.react.PackageList
 import com.facebook.react.ReactInstanceManager
 import com.facebook.react.ReactPackage
@@ -19,7 +20,7 @@ import com.facebook.soloader.SoLoader
  *
  * 资料：https://blog.csdn.net/qq_36828822/article/details/127398891
  */
-class ReactActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler {
+class MixReactNativeActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler {
 
     private val OVERLAY_PERMISSION_REQ_CODE = 1 // 任写一个值
     private var mReactRootView: ReactRootView? = null
@@ -45,6 +46,9 @@ class ReactActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler {
             .setBundleAssetName("main.bundle")
             .setJSMainModulePath("index")
             .addPackages(packages)
+            // fix java.lang.NoClassDefFoundError: com.facebook.react.jscexecutor.JSCExecutor
+            // at com.facebook.react.ReactInstanceManagerBuilder.getDefaultJSExecutorFactory
+            .setJavaScriptExecutorFactory(HermesExecutorFactory())
             .setUseDeveloperSupport(BuildConfig.DEBUG)
             .setInitialLifecycleState(LifecycleState.RESUMED)
             .build()

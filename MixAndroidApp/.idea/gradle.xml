@@ -23,6 +23,8 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/../mix_flutter" />
+            <option value="$PROJECT_DIR$/../mix_flutter/.android/Flutter" />
             <option value="$PROJECT_DIR$/../node_modules/@react-native/gradle-plugin" />
           </set>
         </option>
