@@ -32,5 +32,8 @@ evaluate(new File(settingsDir.parentFile, 'mix_flutter/.android/include_flutter.
 include ':mix_flutter'
 project(':mix_flutter').projectDir = new File('../mix_flutter')
 
-includeBuild('../node_modules/@react-native/gradle-plugin')
-apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
+includeBuild('../MixReactNative/node_modules/@react-native/gradle-plugin')
+// 若不依赖下面ReactNative自动连接插件，则需要重写PackageList对象
+// 此自动连接插件，需要rn项目目录和MixAndroidApp同级，否则会编译报错，若想Android、ReactNative目录清晰不依赖此插件
+// 同级目录commit id：c3e0463dd0ec4a1e043a036ba3ee8d85afdf3d28
+//apply from: file("../MixReactNative/node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
