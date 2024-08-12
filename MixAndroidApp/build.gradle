@@ -1,30 +1,23 @@
 buildscript {
-    ext.kotlin_version = '1.9.20'
-    ext.compose_version = '1.5.4'
+    ext.kotlin_version = '1.9.25'
+    ext.compose_version = '1.6.8'
     repositories {
+        maven { name "aliyunmaven"; url "https://maven.aliyun.com/nexus/content/groups/public/" }
         google()
         mavenCentral()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.3.1'
+        classpath 'com.android.tools.build:gradle:7.4.2'
         classpath("com.facebook.react:react-native-gradle-plugin")
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
-def REACT_NATIVE_VERSION = new File(['node', '--print',"JSON.parse(require('fs').readFileSync(require.resolve('react-native/package.json'), 'utf-8')).version"].execute(null, rootDir).text.trim())
-
 allprojects {
     repositories {
+        maven { name "aliyunmaven"; url "https://maven.aliyun.com/nexus/content/groups/public/" }
         google()
         mavenCentral()
     }
-
-//    configurations.all {
-//        resolutionStrategy {
-//            // Remove this override in 0.65+, as a proper fix is included in react-native itself.
-//            force "com.facebook.react:react-native:" + REACT_NATIVE_VERSION
-//        }
-//    }
 }
