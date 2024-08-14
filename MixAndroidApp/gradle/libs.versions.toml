@@ -7,6 +7,8 @@ lifecycleRuntimeKtx = "2.7.0"
 activityCompose = "1.8.1"
 composeBom = "2023.08.00"
 reactAndroid = "0.74.0"
+flutterPluginLoader = "1.0.0"
+flutterGradlePlugin = "3.24"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -23,4 +25,6 @@ react-android = { module = "com.facebook.react:react-android", version.ref = "re
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+flutterPluginLoader = { id = "dev.flutter.flutter-plugin-loader", version.ref = "flutterPluginLoader" }
+flutterGradlePlugin = { id = "dev.flutter.flutter-gradle-plugin", version.ref = "flutterGradlePlugin" }
 

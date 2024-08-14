@@ -18,6 +18,10 @@ dependencyResolutionManagement {
         maven(uri("https://maven.aliyun.com/nexus/content/groups/public/"))
         google()
         mavenCentral()
+        gradlePluginPortal()
+        maven {
+            url = uri("https://storage.googleapis.com/download.flutter.io")
+        }
     }
 }
 
