@@ -22,6 +22,12 @@ dependencyResolutionManagement {
         maven {
             url = uri("https://storage.googleapis.com/download.flutter.io")
         }
+        maven {
+            // 此uri可更换成私有的maven仓库，需要将单独开发完的flutter aar打包上传到此maven仓库，用于aar依赖
+            // 若此处为loacl本地依赖，则更换目录的相对路径即可
+            // url = uri("some/path/flutter_module/build/host/outputs/repo")
+        }
+
     }
 }
 
